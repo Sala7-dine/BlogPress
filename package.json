@@ -1,0 +1,14 @@
+{
+  "name": "blogpress",
+  "version": "1.0.0",
+  "description": "**BlogPress** est une plateforme de blog moderne avec des fonctionnalités d'analyse intégrées. Développée en **PHP** et **MySQL**, cette application vous permet de créer, gérer et analyser des articles tout en offrant une expérience utilisateur intuitive.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

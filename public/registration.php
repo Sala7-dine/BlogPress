@@ -3,7 +3,7 @@
 require 'config.php';
 
 if(!empty($_SESSION["id_auteur"])){
-    header("Location:index.php");
+    header("Location:dashboard.php");
 }
 
 if(isset($_POST["submit"])){
@@ -33,7 +33,6 @@ if(isset($_POST["submit"])){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[url('./images/bg1.webp')] bg-cover bg-no-repeat h-screen">
 
