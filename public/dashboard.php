@@ -24,9 +24,10 @@ if(isset($_POST["submit"])){
   $titre = $_POST["titre"] ?? '';
   $content = $_POST["content"] ?? '';
   $img = $_POST["image"] ?? '';
+  $description = $_POST["description"] ?? '';
 
   if($titre != "" && $content != ""){
-    $query = "INSERT INTO article(title,content , image ,id_auteur) VALUES('$titre' , '$content' , '$img' ,  $id)";
+    $query = "INSERT INTO article(title,content , description ,  image ,id_auteur) VALUES('$titre' , '$content' ,'$description' ,  '$img' ,  $id)";
     mysqli_query($connexion , $query);
 
     echo "<script>alert('Artcie ajouter avec succes')</script>";
@@ -454,8 +455,14 @@ if(isset($_POST["submit"])){
                     </div>
 
                     <div>
-                        <labe class="text-gray-800 text-sm mb-2 block">Descriptions</labe>
-                        <textarea placeholder='Saisir la description...' name="content"
+                        <labe class="text-gray-800 text-sm mb-2 block">Content</labe>
+                        <input type="text" name="content" placeholder="Saisir content..."
+                            class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
+                    </div>
+
+                    <div>
+                        <labe class="text-gray-800 text-sm mb-2 block">Description</labe>
+                        <textarea placeholder='Saisir la description...' name="description"
                             class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" rows="3"></textarea>
                     </div>
 

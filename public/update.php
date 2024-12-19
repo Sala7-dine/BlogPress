@@ -14,9 +14,10 @@ if(isset($_POST["submit"])){
     $titre = $_POST["titre"] ?? '';
     $content = $_POST["content"] ?? '';
     $img = $_POST["image"] ?? '';
+    $description = $_POST["description"] ?? '';
   
     if($titre != "" && $content != "" && $img){
-        $query = "UPDATE article SET title = '$titre' , content = '$content' , image = '$img' where id_article = $id;";
+        $query = "UPDATE article SET title = '$titre' , content = '$content'  , description = '$description' , image = '$img' where id_article = $id;";
         
         mysqli_query($connexion,$query);
         header('location:dashboard.php');
@@ -81,9 +82,15 @@ if(isset($_POST["submit"])){
                     </div>
 
                     <div>
-                        <labe class="text-gray-800 text-sm mb-2 block">Descriptions</labe>
-                        <textarea placeholder='Saisir la description...' name="content" 
-                            class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" rows="3"><?php echo $row['content']; ?></textarea>
+                        <labe class="text-gray-800 text-sm mb-2 block">Content</labe>
+                        <input type="text" name="content" placeholder="Saisir content..."  value = "<?php echo $row['content']; ?>"
+                            class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" />
+                    </div>
+
+                    <div>
+                        <labe class="text-gray-800 text-sm mb-2 block">Description</labe>
+                        <textarea placeholder='Saisir la description...' name="description"
+                            class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" rows="3"><?php echo $row['description']; ?></textarea>
                     </div>
 
                     <div class="flex justify-end gap-4 !mt-8">
