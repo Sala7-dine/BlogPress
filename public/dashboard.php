@@ -17,7 +17,6 @@ if(!empty($_SESSION["id_auteur"])){
   header("Location:login.php");
 }
 
-
 if(isset($_POST["submit"])){
 
   $titre = $_POST["titre"] ?? '';
@@ -43,6 +42,10 @@ if(isset($_POST["submit"])){
 }
 
 
+
+
+
+
 ?>
 
 <!doctype html>
@@ -53,6 +56,8 @@ if(isset($_POST["submit"])){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
 
@@ -238,7 +243,7 @@ if(isset($_POST["submit"])){
 
                 <h1 class="text-balck font-bold text-4xl">
                 <?php
-                    $totalLikes = mysqli_query($connexion , "SELECT views as totaleViews FROM article WHERE id_auteur = $id");
+                    $totalLikes = mysqli_query($connexion , "SELECT SUM(views) as totaleViews FROM article WHERE id_auteur = $id");
                     $res = mysqli_fetch_assoc($totalLikes);
                     echo $res["totaleViews"];
                   ?>
@@ -259,7 +264,7 @@ if(isset($_POST["submit"])){
 
                 <h1 class="text-balck font-bold text-4xl">
                 <?php
-                    $totalLikes = mysqli_query($connexion , "SELECT likes as totaleLikes FROM article WHERE id_auteur = $id");
+                    $totalLikes = mysqli_query($connexion , "SELECT SUM(likes) as totaleLikes FROM article WHERE id_auteur = $id");
                     $res = mysqli_fetch_assoc($totalLikes);
                     echo $res["totaleLikes"];
                   ?>
@@ -274,6 +279,11 @@ if(isset($_POST["submit"])){
             
           </div>
           
+
+          <div class="mt-12 flex flex-col justify-center items-center m-auto gap-24 w-4/6">
+            <canvas id="myChart1"></canvas>
+            <canvas id="myChart2"></canvas>
+          </div>
       
 
       </div>
@@ -440,7 +450,7 @@ if(isset($_POST["submit"])){
           
       </div>
 
-      <!--------------------------------------------- Questions ------------------------------------------------------->
+      <!--------------------------------------------- Comments   ------------------------------------------------------->
 
       <div class="comments hidden">
         
@@ -456,7 +466,6 @@ if(isset($_POST["submit"])){
 
           </div>
 
-          <!-- Tablaux de quiz -->
           <div class="overflow-x-auto font-[sans-serif]">
           <table class="min-w-full bg-white">
               <thead class="bg-gray-800 whitespace-nowrap">
@@ -517,6 +526,10 @@ if(isset($_POST["submit"])){
         </tbody>
       </table>
           </div>
+
+
+       
+
       </div>
 
 
@@ -525,6 +538,80 @@ if(isset($_POST["submit"])){
 
 
 <script src="dashboard.js" defer></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+<?php 
+
+  $select = mysqli_query($connexion , "SELECT COUNT(*) as totaleArticle , SUM(views) as totaleViews , SUM(likes) as totaleLikes FROM article where id_auteur = $id");
+  $values = mysqli_fetch_assoc($select);
+
+  $comment = mysqli_query($connexion , "SELECT COUNT(id_comments) as totalComments FROM comments c join article a on c.id_article = a.id_article join auteur au on a.id_auteur = au.id_auteur where au.id_auteur = $id");
+  $commentValue = mysqli_fetch_assoc($comment);
+
+?>
+
+var blogData = [
+
+      <?php
+
+          echo $values["totaleArticle"].','.$values["totaleViews"].','.$values["totaleLikes"].','.$commentValue["totalComments"];
+
+        
+      ?>
+
+];
+
+</script>
+
+
+<script>
+
+  const ctx1 = document.getElementById('myChart1');
+  const ctx2 = document.getElementById('myChart2');
+
+  new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: ['Article' , 'Likes' , 'Views', 'Comments'],
+      datasets: [{
+        label: 'Total',
+        data: blogData,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+  new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+      labels: ['Article' , 'Likes' , 'Views', 'Comments'],
+      datasets: [{
+        label: 'Total',
+        data: blogData,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
