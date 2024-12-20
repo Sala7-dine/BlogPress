@@ -442,7 +442,82 @@ if(isset($_POST["submit"])){
 
       <!--------------------------------------------- Questions ------------------------------------------------------->
 
-     
+      <div class="comments hidden">
+        
+        <div class="w-full flex justify-between px-2">
+          
+          <h1 class="text-black text-4xl font-extrabold">Commanets</h1>
+
+        </div>
+        
+          <div class="flex justify-between py-10 px-1">
+
+            <h1 class="text-gray-400 text-3xl font-bold">All comments</h1>
+
+          </div>
+
+          <!-- Tablaux de quiz -->
+          <div class="overflow-x-auto font-[sans-serif]">
+          <table class="min-w-full bg-white">
+              <thead class="bg-gray-800 whitespace-nowrap">
+                <tr>
+                  <th class="p-4 text-left text-sm font-medium text-white">
+                    Username
+                  </th>
+                  <th class="p-4 text-left text-sm font-medium text-white">
+                    Email
+                  </th>
+                  <th class="p-4 text-left text-sm font-medium text-white">
+                    Comment
+                  </th>
+                  <th class="p-4 text-left text-sm font-medium text-white">
+                    Created at
+                  </th>
+                  <th class="p-4 text-left text-sm font-medium text-white">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+
+        <tbody class="whitespace-nowrap">
+          <?php 
+            $comments = mysqli_query($connexion , "SELECT * FROM comments c join article a on c.id_article = a.id_article join auteur au on a.id_auteur = au.id_auteur where au.id_auteur = $id");
+            while($resul = mysqli_fetch_assoc($comments)){
+              echo '
+                   <tr class="even:bg-blue-50">
+                      <td class="p-4 text-sm text-black">
+                        '.$resul["visiteur_name"].'
+                      </td>
+                      <td class="p-4 text-sm text-black">
+                        '.$resul["visiteur_email"].'
+                      </td>
+                      <td class="p-4 text-sm text-black">
+                        '.$resul["content"].'
+                      </td>
+                      <td class="p-4 text-sm text-black">
+                        '.$resul["created_at"].'
+                      </td>
+                      <td class="p-4">
+                      <form method="GET">
+                        <a href="comments.php?idComment='.$resul["id_comments"].'" class="mr-4" title="Delete">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-red-500 hover:fill-red-700" viewBox="0 0 24 24">
+                            <path
+                              d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"
+                              data-original="#000000" />
+                            <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"
+                              data-original="#000000" />
+                          </svg>
+                        </a>
+                        </form>
+                      </td>
+                    </tr>    
+              ';
+            }
+          ?>
+        </tbody>
+      </table>
+          </div>
+      </div>
 
 
     </section>
