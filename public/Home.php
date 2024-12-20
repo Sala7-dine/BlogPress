@@ -1,7 +1,5 @@
 <?php
-
 require "config.php";
-
 ?>
 
 
@@ -19,7 +17,7 @@ require "config.php";
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <title>Home page</title>
 
   <style>
     body {
@@ -67,10 +65,10 @@ require "config.php";
             <div class='flex items-center sm:space-x-2 space-x-2'>
              
 
-              <button
-                class='max-lg:hidden px-4 py-2 text-sm rounded-full text-white border-2 border-[#007bff] bg-[#007bff] hover:bg-[#004bff]'>Connexion</button>
-              <button
-                class='max-lg:hidden px-4 py-2 text-sm rounded-full text-white border-2 border-[#007bff] bg-[#007bff] hover:bg-[#004bff]'>Créer mon Blog</button>
+              <a href="login.php"
+                class='max-lg:hidden px-4 py-2 text-sm rounded-full text-white border-2 border-[#007bff] bg-[#007bff] hover:bg-[#004bff]'>Connexion</a>
+              <a href="registration.php"
+                class='max-lg:hidden px-4 py-2 text-sm rounded-full text-white border-2 border-[#007bff] bg-[#007bff] hover:bg-[#004bff]'>Créer mon Blog</a>
 
               <button id="toggleOpen" class='lg:hidden'>
                 <svg class="w-7 h-7" fill="#333" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -121,14 +119,14 @@ require "config.php";
 
               while($row = mysqli_fetch_assoc($query)){
 
-                  // echo $row["username"] . ' ' .$row["title"] . "<br>";
-
                   echo '
                           <div class="bg-white cursor-pointer rounded overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] relative top-0 hover:-top-2 transition-all duration-300">
                             <img src="https://readymadeui.com/prediction.webp" alt="Blog Post 3" class="w-full h-60 object-cover" />
                             <div class="p-6">
                               <span class="text-sm block text-gray-400 mb-2">'.$row["created_at"].' | BY '.$row["username"].'</span>
-                              <h3 class="text-xl font-bold text-gray-800">'.$row["title"].'</h3>
+                              <form method="GET">
+                              <a href="views.php?idArticle='.$row['id_article'].'" class="text-xl font-bold text-gray-800 hover:underline">'.$row["title"].'</a>
+                              </form>
                               <hr class="my-4" />
                               <p class="text-gray-400 text-sm">'.$row["content"].'</p>
                             </div>
@@ -147,431 +145,7 @@ require "config.php";
     </div>
       </div>
 
-      <div class="mt-32 bg-white rounded-md px-4 py-12">
-        <div class="grid md:grid-cols-2 justify-center items-center gap-10 max-w-7xl mx-auto">
-          <div class="max-md:text-center">
-            <h2 class="md:text-4xl text-3xl font-extrabold mb-6">Unlock Premium Features</h2>
-            <p>Veniam proident aute magna anim excepteur et ex consectetur velit ullamco veniam minim aute sit. Elit
-              occaecat officia et laboris Lorem minim. Officia do aliqua adipisicing ullamco in.</p>
-            <button type="button"
-              class="px-6 py-3 rounded-xl text-white bg-cyan-900 transition-all hover:bg-cyan-800 mt-10">
-              Try it today
-            </button>
-          </div>
-          <div>
-            <img src="https://www.faria.org/wp-content/uploads/2021/03/activity-management.png" alt="Premium Benefits"
-              class="w-full mx-auto" />
-          </div>
-        </div>
-      </div>
 
-      <div class="mt-32">
-        <div class="mb-16 text-center">
-          <h2 class="md:text-4xl text-3xl font-extrabold">What our happy client say</h2>
-        </div>
-        <div class="grid md:grid-cols-3 md:py-16 gap-8 max-w-7xl max-md:max-w-lg mx-auto relative">
-          <div
-            class="bg-blue-100 lg:max-w-[70%] max-w-[80%] h-full w-full inset-0 mx-auto rounded-3xl absolute max-md:hidden">
-          </div>
-          <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
-            <div>
-              <img src="https://readymadeui.com/profile_2.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">John Doe</h4>
-              <p class="mt-1 text-xs">Founder of Rubik</p>
-            </div>
-            <div class="mt-4">
-              <p>The service was amazing. I never had to wait that long for my food.
-                The staff was friendly and attentive, and the delivery was impressively prompt.</p>
-            </div>
-          </div>
-          <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
-            <div>
-              <img src="https://readymadeui.com/profile_3.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">Mark Adair</h4>
-              <p class="mt-1 text-xs">Founder of Alpha</p>
-            </div>
-            <div class="mt-4">
-              <p>The service was amazing. I never had to wait that long for my food.
-                The staff was friendly and attentive, and the delivery was impressively prompt.</p>
-            </div>
-          </div>
-          <div class="h-auto lg:p-6 p-4 rounded-md mx-auto bg-white relative max-md:shadow-md">
-            <div>
-              <img src="https://readymadeui.com/profile_4.webp" class="w-12 h-12 rounded-full" />
-              <h4 class="whitespace-nowrap font-semibold mt-2">Simon Konecki</h4>
-              <p class="mt-1 text-xs">Founder of Labar</p>
-            </div>
-            <div class="mt-4">
-              <p>The service was amazing. I never had to wait that long for my food.
-                The staff was friendly and attentive, and the delivery was impressively prompt.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-32 max-w-7xl mx-auto">
-        <div class="text-center">
-          <h2 class="md:text-4xl text-3xl font-extrabold">Choose a Subscription</h2>
-        </div>
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mt-16 max-md:max-w-lg max-md:mx-auto">
-          <div class="bg-white rounded sm:p-6 p-4">
-            <h3 class="text-xl font-semibold">Free</h3>
-            <p class="mt-2">Ideal for individuals who need quick access to basic features.</p>
-            <div class="mt-6">
-              <h2 class="text-4xl font-semibold">$0<span class="text-gray-500 ml-2 text-[15px]">/ Month</span></h2>
-              <button type="button"
-                class="w-full mt-6 px-6 py-3 rounded-xl text-white bg-cyan-900 transition-all hover:bg-cyan-800">Get
-                Started</button>
-            </div>
-            <div class="mt-6">
-              <h4 class="text-base font-bold mb-4">Plan Includes</h4>
-              <ul class="space-y-5">
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  50 Image generations
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  500 Credits
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Monthly 100 Credits Free
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Customer Support
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Dedicated Server
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Priority Generations
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  50GB Cloud Storage
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="bg-blue-600 rounded sm:p-6 p-4 text-white shadow-lg shadow-blue-300">
-            <h3 class="text-xl font-semibold">Professional</h3>
-            <p class="mt-2">Ideal for individuals who who need advanced features and tools for client work.</p>
-            <div class="mt-6">
-              <h2 class="text-4xl font-semibold">$25<span class="text-gray-200 ml-2 text-[15px]">/ Month</span></h2>
-              <button type="button"
-                class="w-full mt-6 px-6 py-3 rounded-xl text-black bg-white transition-all hover:bg-gray-100">Get
-                Started</button>
-            </div>
-            <div class="mt-6">
-              <h4 class="text-base font-bold mb-4">Plan Includes</h4>
-              <ul class="space-y-5">
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-white" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  500 Image generations
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-white" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  300 Credits
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-white" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Monthly 1000 Credits Free
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-white" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Customer Support
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-white" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Dedicated Server
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-white" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Priority Generations
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-white" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  500GB Cloud Storage
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="bg-white rounded sm:p-6 p-4">
-            <h3 class="text-xl font-semibold">Enterprise</h3>
-            <p class="mt-2">Ideal for businesses who need personalized services and security for large teams.</p>
-            <div class="mt-6">
-              <h2 class="text-4xl font-semibold">$100<span class="text-gray-500 ml-2 text-[15px]">/ Month</span></h2>
-              <button type="button"
-                class="w-full mt-6 px-6 py-3 rounded-xl text-white bg-cyan-900 transition-all hover:bg-cyan-800">Get
-                Started</button>
-            </div>
-            <div class="mt-6">
-              <h4 class="text-base font-bold mb-4">Plan Includes</h4>
-              <ul class="space-y-5">
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  5000 Image generations
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  10000 Credits
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Monthly 2000 Credits Free
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Customer Support
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Dedicated Server
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  Priority Generations
-                </li>
-                <li class="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" class="mr-4 fill-green-500" viewBox="0 0 24 24">
-                    <path
-                      d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
-                      data-original="#000000" />
-                  </svg>
-                  1000GB Cloud Storage
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-32">
-        <div class="sm:max-w-7xl max-w-sm mx-auto">
-          <div class="text-center">
-            <h2 class="md:text-4xl text-3xl font-extrabold">Meet our team</h2>
-            <p class="mt-6">Meet our team of professionals to serve you.</p>
-          </div>
-          <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-x-8 gap-y-20 text-center mt-32">
-            <div class="bg-gray-200 relative rounded">
-              <img src="https://readymadeui.com/team-1.webp" class="w-32 h-32 rounded-full inline-block -mt-12" />
-              <div class="py-6">
-                <h4 class="text-base font-semibold">John Doe</h4>
-                <p class="text-xs mt-1">Software Engineer</p>
-                <div class="space-x-4 mt-6">
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 155.139 155.139">
-                      <path
-                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
-                        data-original="#010002" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 512 512">
-                      <path
-                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
-                        data-original="#03a9f4" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14px" fill="#000" viewBox="0 0 24 24">
-                      <path
-                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
-                        data-original="#0077b5" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="bg-gray-200 relative rounded">
-              <img src="https://readymadeui.com/team-2.webp" class="w-32 h-32 rounded-full inline-block -mt-12" />
-              <div class="py-6">
-                <h4 class="text-base font-semibold">Mark Adair</h4>
-                <p class="text-xs mt-1">Software Engineer</p>
-                <div class="space-x-4 mt-6">
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 155.139 155.139">
-                      <path
-                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
-                        data-original="#010002" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 512 512">
-                      <path
-                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
-                        data-original="#03a9f4" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14px" fill="#000" viewBox="0 0 24 24">
-                      <path
-                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
-                        data-original="#0077b5" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="bg-gray-200 relative rounded">
-              <img src="https://readymadeui.com/team-3.webp" class="w-32 h-32 rounded-full inline-block -mt-12" />
-              <div class="py-6">
-                <h4 class="text-base font-semibold">Simon Konecki</h4>
-                <p class="text-xs mt-1">Web Designer</p>
-                <div class="space-x-4 mt-6">
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 155.139 155.139">
-                      <path
-                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
-                        data-original="#010002" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 512 512">
-                      <path
-                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
-                        data-original="#03a9f4" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14px" fill="#000" viewBox="0 0 24 24">
-                      <path
-                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
-                        data-original="#0077b5" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="bg-gray-200 relative rounded">
-              <img src="https://readymadeui.com/team-6.webp" class="w-32 h-32 rounded-full inline-block -mt-12" />
-              <div class="py-6">
-                <h4 class="text-base font-semibold">Eleanor</h4>
-                <p class="text-xs mt-1">Web Designer</p>
-                <div class="space-x-4 mt-6">
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 155.139 155.139">
-                      <path
-                        d="M89.584 155.139V84.378h23.742l3.562-27.585H89.584V39.184c0-7.984 2.208-13.425 13.67-13.425l14.595-.006V1.08C115.325.752 106.661 0 96.577 0 75.52 0 61.104 12.853 61.104 36.452v20.341H37.29v27.585h23.814v70.761h28.48z"
-                        data-original="#010002" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12px" fill="#000" viewBox="0 0 512 512">
-                      <path
-                        d="M512 97.248c-19.04 8.352-39.328 13.888-60.48 16.576 21.76-12.992 38.368-33.408 46.176-58.016-20.288 12.096-42.688 20.64-66.56 25.408C411.872 60.704 384.416 48 354.464 48c-58.112 0-104.896 47.168-104.896 104.992 0 8.32.704 16.32 2.432 23.936-87.264-4.256-164.48-46.08-216.352-109.792-9.056 15.712-14.368 33.696-14.368 53.056 0 36.352 18.72 68.576 46.624 87.232-16.864-.32-33.408-5.216-47.424-12.928v1.152c0 51.008 36.384 93.376 84.096 103.136-8.544 2.336-17.856 3.456-27.52 3.456-6.72 0-13.504-.384-19.872-1.792 13.6 41.568 52.192 72.128 98.08 73.12-35.712 27.936-81.056 44.768-130.144 44.768-8.608 0-16.864-.384-25.12-1.44C46.496 446.88 101.6 464 161.024 464c193.152 0 298.752-160 298.752-298.688 0-4.64-.16-9.12-.384-13.568 20.832-14.784 38.336-33.248 52.608-54.496z"
-                        data-original="#03a9f4" />
-                    </svg>
-                  </button>
-                  <button type="button"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full border-none outline-none  bg-gray-100 hover:bg-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14px" fill="#000" viewBox="0 0 24 24">
-                      <path
-                        d="M23.994 24v-.001H24v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07V7.976H8.489v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243V24zM.396 7.977h4.976V24H.396zM2.882 0C1.291 0 0 1.291 0 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909A2.884 2.884 0 0 0 2.882 0z"
-                        data-original="#0077b5" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="bg-white mt-32 px-4 py-12">
         <div class="grid sm:grid-cols-2 items-center gap-16 my-6 mx-auto max-w-5xl">
@@ -724,8 +298,8 @@ require "config.php";
       <hr class="my-8" />
 
       <p class="text-center">
-        Copyright © 2023
-        <a href="https://readymadeui.com/" target="_blank" class="hover:underline mx-1">ReadymadeUI</a>
+        Copyright © 2024
+        <a href="#" target="_blank" class="hover:underline mx-1">Youcode</a>
         All Rights Reserved.
       </p>
     </footer>

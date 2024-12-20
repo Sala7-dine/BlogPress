@@ -9,7 +9,6 @@ if(isset($_GET['deleteid'])){
 
 }
 
-
 if(!empty($_SESSION["id_auteur"])){
   $id = $_SESSION["id_auteur"];
   $result = mysqli_query($connexion , "SELECT * FROM auteur WHERE id_auteur = $id");
@@ -66,7 +65,7 @@ if(isset($_POST["submit"])){
 
       <ul class="mt-6">
         <li>
-          <div id="dashboardSection"
+          <a href="Home.php"
             class="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-4"
               viewBox="0 0 512 512">
@@ -74,8 +73,8 @@ if(isset($_POST["submit"])){
                 d="M197.332 170.668h-160C16.746 170.668 0 153.922 0 133.332v-96C0 16.746 16.746 0 37.332 0h160c20.59 0 37.336 16.746 37.336 37.332v96c0 20.59-16.746 37.336-37.336 37.336zM37.332 32A5.336 5.336 0 0 0 32 37.332v96a5.337 5.337 0 0 0 5.332 5.336h160a5.338 5.338 0 0 0 5.336-5.336v-96A5.337 5.337 0 0 0 197.332 32zm160 480h-160C16.746 512 0 495.254 0 474.668v-224c0-20.59 16.746-37.336 37.332-37.336h160c20.59 0 37.336 16.746 37.336 37.336v224c0 20.586-16.746 37.332-37.336 37.332zm-160-266.668A5.337 5.337 0 0 0 32 250.668v224A5.336 5.336 0 0 0 37.332 480h160a5.337 5.337 0 0 0 5.336-5.332v-224a5.338 5.338 0 0 0-5.336-5.336zM474.668 512h-160c-20.59 0-37.336-16.746-37.336-37.332v-96c0-20.59 16.746-37.336 37.336-37.336h160c20.586 0 37.332 16.746 37.332 37.336v96C512 495.254 495.254 512 474.668 512zm-160-138.668a5.338 5.338 0 0 0-5.336 5.336v96a5.337 5.337 0 0 0 5.336 5.332h160a5.336 5.336 0 0 0 5.332-5.332v-96a5.337 5.337 0 0 0-5.332-5.336zm160-74.664h-160c-20.59 0-37.336-16.746-37.336-37.336v-224C277.332 16.746 294.078 0 314.668 0h160C495.254 0 512 16.746 512 37.332v224c0 20.59-16.746 37.336-37.332 37.336zM314.668 32a5.337 5.337 0 0 0-5.336 5.332v224a5.338 5.338 0 0 0 5.336 5.336h160a5.337 5.337 0 0 0 5.332-5.336v-224A5.336 5.336 0 0 0 474.668 32zm0 0"
                 data-original="#000000" />
             </svg>
-            <span>Dashboard</span>
-          </div>
+            <span>Home</span>
+        </a>
         </li>
       </ul>
 
@@ -87,6 +86,18 @@ if(isset($_POST["submit"])){
 
         
         <ul class="mt-3">
+        <li>
+          <div id="dashboardSection"
+            class="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-4"
+              viewBox="0 0 512 512">
+              <path
+                d="M197.332 170.668h-160C16.746 170.668 0 153.922 0 133.332v-96C0 16.746 16.746 0 37.332 0h160c20.59 0 37.336 16.746 37.336 37.332v96c0 20.59-16.746 37.336-37.336 37.336zM37.332 32A5.336 5.336 0 0 0 32 37.332v96a5.337 5.337 0 0 0 5.332 5.336h160a5.338 5.338 0 0 0 5.336-5.336v-96A5.337 5.337 0 0 0 197.332 32zm160 480h-160C16.746 512 0 495.254 0 474.668v-224c0-20.59 16.746-37.336 37.332-37.336h160c20.59 0 37.336 16.746 37.336 37.336v224c0 20.586-16.746 37.332-37.336 37.332zm-160-266.668A5.337 5.337 0 0 0 32 250.668v224A5.336 5.336 0 0 0 37.332 480h160a5.337 5.337 0 0 0 5.336-5.332v-224a5.338 5.338 0 0 0-5.336-5.336zM474.668 512h-160c-20.59 0-37.336-16.746-37.336-37.332v-96c0-20.59 16.746-37.336 37.336-37.336h160c20.586 0 37.332 16.746 37.332 37.336v96C512 495.254 495.254 512 474.668 512zm-160-138.668a5.338 5.338 0 0 0-5.336 5.336v96a5.337 5.337 0 0 0 5.336 5.332h160a5.336 5.336 0 0 0 5.332-5.332v-96a5.337 5.337 0 0 0-5.332-5.336zm160-74.664h-160c-20.59 0-37.336-16.746-37.336-37.336v-224C277.332 16.746 294.078 0 314.668 0h160C495.254 0 512 16.746 512 37.332v224c0 20.59-16.746 37.336-37.332 37.336zM314.668 32a5.337 5.337 0 0 0-5.336 5.332v224a5.338 5.338 0 0 0 5.336 5.336h160a5.337 5.337 0 0 0 5.332-5.336v-224A5.336 5.336 0 0 0 474.668 32zm0 0"
+                data-original="#000000" />
+            </svg>
+            <span>Dashboard</span>
+          </div>
+        </li>
         <li>
             <div id="articleSection"
               class="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
@@ -147,38 +158,7 @@ if(isset($_POST["submit"])){
         </ul>
       </div>
 
-      <div class="mt-6">
-        <h6 class="text-blue-600 text-sm font-bold px-4">Income</h6>
-        <ul class="mt-3">
-          <li>
-            <a href="javascript:void(0)"
-              class="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-4"
-                viewBox="0 0 511.877 511.877">
-                <path
-                  d="M442.706 340.677c-11-68.6-93.8-175.7-120.1-208.2 4.2-3.5 6.9-8.7 6.9-14.6 0-4.2-1.4-8-3.7-11.1 2.3-3.1 3.7-7 3.7-11.1 0-6.6-3.4-12.4-8.5-15.7 8.1-33.1 31.3-59.5 32.4-60.7.8-.9 1.3-1.9 1.6-3 .7-2.4.1-5.1-1.5-7.1-1-1.2-2.3-2.1-3.8-2.5-63.1-17.5-114.9 4.1-129.7 11.4-12.3-7.5-24.5-14-39.9-16.2-5-.7-10.1-1-15.7-1a7.719 7.719 0 0 0-6.9 11.2s.6 1.1 1 1.6c.3.3 26.7 31.7 35.2 66.2-5.1 3.4-8.5 9.2-8.5 15.7 0 4.2 1.4 8 3.7 11.1-2.3 3.1-3.7 7-3.7 11.1 0 5.1 2 9.7 5.3 13.1-25.1 31-110.2 140-121.3 209.8-1.2 5.8-17.4 86.9 23.1 135.8 19.4 23.5 48.5 35.4 86.4 35.4 1.5 0 2.9 0 4.4-.1h145.7c1.5 0 3 .1 4.4.1 37.9 0 66.9-11.9 86.4-35.4 40.4-48.9 24.3-130 23.1-135.8zm-239.2-219.5h-.1c-1.6-.3-2.7-1.7-2.7-3.3 0-1.9 1.5-3.4 3.4-3.4h106.6c1.9 0 3.4 1.5 3.4 3.4s-1.5 3.4-3.4 3.4h-106.7c-.2-.1-.3-.1-.5-.1zm-2.9-25.6c0-1.8 1.5-3.3 3.3-3.4h106.7c1.8 0 3.3 1.5 3.3 3.4s-1.5 3.4-3.4 3.4h-106.5c-1.9 0-3.4-1.5-3.4-3.4zm124.3-78.4c-1.1.7-2.2 1.4-3.2 2.1 0 0-.1.1-.2.1-2.3 1.5-4.5 2.9-6.8 4.3-9.5 5.8-19.2 9.3-29.5 10.9-11.2 1.7-22.9 1.1-33.9-1.5-4.8-1.2-9.4-2.8-14.2-5.1-.2-.1-.3-.2-.5-.2 17.1-6.9 49.6-16.2 88.3-10.6zm-106.8 17.9 1.3.8c9.7 6 18.7 9.9 28.2 12.2 12.9 3.1 26.7 3.7 39.8 1.8 12-1.8 23.1-5.8 34.1-12.2-6.2 11-12.3 24.4-15.9 39.1h-96.9c-5.7-23.4-18.7-45.4-28.1-59 13.7 2.5 24.8 9.4 37.5 17.3zm189.5 431.5c-17 20.6-43.5 30.6-78.5 29.7h-146.3c-35.1.8-61.5-9.1-78.5-29.7-36.3-43.7-20.1-122.1-19.9-122.9 0-.1.1-.3.1-.4 10.9-69.1 104.5-186 121.3-206.6h100.3c16.5 20.1 110.4 137.4 121.3 206.6 0 .1 0 .3.1.4.1.8 16.4 79-19.9 122.9zm-151.7-233.7c-46.1 0-83.6 37.5-83.6 83.6s37.5 83.6 83.6 83.6 83.6-37.5 83.6-83.6c.1-46.1-37.5-83.6-83.6-83.6zm0 151.7c-37.6 0-68.1-30.6-68.1-68.1s30.6-68.1 68.1-68.1 68.1 30.5 68.1 68.1-30.5 68.1-68.1 68.1zm28.1-53.6c0 11.6-9 21.2-20.3 22.1v4c0 4.3-3.5 7.8-7.8 7.8s-7.8-3.5-7.8-7.8v-3.9h-5.5c-4.3 0-7.8-3.5-7.8-7.8s3.5-7.8 7.8-7.8h19.1a6.7 6.7 0 0 0 0-13.4h-11.7c-12.3 0-22.2-10-22.2-22.2 0-11.6 9-21.2 20.3-22.1v-4c0-4.3 3.5-7.8 7.8-7.8s7.8 3.5 7.8 7.8v3.9h5.5c4.3 0 7.8 3.5 7.8 7.8s-3.5 7.8-7.8 7.8h-19.1a6.7 6.7 0 0 0 0 13.4h11.7c12.2-.1 22.2 9.9 22.2 22.2z"
-                  data-original="#000000" />
-              </svg>
-              <span>Earnings and taxes</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)"
-              class="text-black hover:text-blue-600 text-sm flex items-center hover:bg-blue-50 rounded px-4 py-3 transition-all">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-4"
-                viewBox="0 0 193.769 193.769">
-                <path
-                  d="m149.203 41.104-9.348 12.009c20.15 15.679 30.201 41.063 26.234 66.253-2.906 18.484-12.838 34.73-27.964 45.748-15.131 11.012-33.64 15.488-52.124 12.567-38.157-6.008-64.32-41.938-58.322-80.098C30.585 79.097 40.52 62.85 55.648 51.835c13.208-9.615 28.991-14.233 45.086-13.317L87.579 52.319l9.759 9.313 20.766-21.801.005.008 9.303-9.769-9.752-9.303-.005.003L95.862 0l-9.31 9.769 14.2 13.525c-19.303-.913-38.21 4.702-54.059 16.242C28.28 52.943 16.19 72.717 12.65 95.221c-7.302 46.445 24.54 90.184 70.985 97.493a86.181 86.181 0 0 0 13.434 1.055c17.89 0 35.273-5.623 50.011-16.356 18.415-13.409 30.503-33.183 34.043-55.682 4.829-30.654-7.403-61.55-31.92-80.627z"
-                  data-original="#000000" />
-                <path
-                  d="M105.24 151.971v-.003h.001v-8.757c10.383-1.159 20.485-7.718 20.485-20.17 0-16.919-15.732-18.859-27.223-20.274-7.347-.878-12.97-1.897-12.97-6.348 0-6.188 8.722-6.855 12.473-6.855 5.567 0 11.507 2.617 13.525 5.957l.586.971 11.542-5.341-.571-1.164c-4.301-8.793-12.009-11.337-17.85-12.364v-7.71H91.723v7.677c-12.582 1.856-20.054 8.839-20.054 18.829 0 16.29 14.791 17.943 25.582 19.153 9.617 1.134 14.094 3.51 14.094 7.469 0 7.563-10.474 8.154-13.685 8.154-7.147 0-14.038-3.566-16.031-8.301l-.495-1.169-12.539 5.316.5 1.169c3.713 8.691 11.725 14.137 22.63 15.425v8.336h13.515z"
-                  data-original="#000000" />
-              </svg>
-              <span>Refunds</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+    
 
       <div class="mt-6">
         <h6 class="text-blue-600 text-sm font-bold px-4">Actions</h6>
@@ -217,11 +197,11 @@ if(isset($_POST["submit"])){
       
       <!-------------------------------------------- Dashboard ------------------------------------------------------>
       
-      <div class="dashboard hidden">
+      <div class="dashboard">
         
         <div class="w-full flex justify-between px-2">
           
-          <h1 class="text-balck text-4xl font-extrabold">Hello Salahdine</h1>
+          <h1 class="text-balck text-4xl font-extrabold">Hello <?php echo $row["username"]; ?></h1>
         
 
         </div>
@@ -235,7 +215,13 @@ if(isset($_POST["submit"])){
                     <h1 class="text-balck text-lg font-medium" >Total Article</h1>
                 </div>      
 
-                <h1 class="text-balck font-bold text-4xl" id="totalQuiz">0</h1>
+                <h1 class="text-balck font-bold text-4xl">
+                <?php
+                    $totalLikes = mysqli_query($connexion , "SELECT COUNT(*) as totale FROM article WHERE id_auteur = $id");
+                    $res = mysqli_fetch_assoc($totalLikes);
+                    echo $res["totale"];
+                  ?>
+                </h1>
 
                 <div class="flex justify-center items-center gap-2">
                     <h3 class="bg-[#0ee87bf2] text-[10px] rounded-xl w-10 text-center text-white text-bold">+21%</h3>
@@ -250,7 +236,13 @@ if(isset($_POST["submit"])){
                     <h1 class="text-balck text-lg font-medium">Totale views</h1>
                 </div>      
 
-                <h1 class="text-balck font-bold text-4xl" id="nbrParticipation">0</h1>
+                <h1 class="text-balck font-bold text-4xl">
+                <?php
+                    $totalLikes = mysqli_query($connexion , "SELECT views as totaleViews FROM article WHERE id_auteur = $id");
+                    $res = mysqli_fetch_assoc($totalLikes);
+                    echo $res["totaleViews"];
+                  ?>
+                </h1>
 
                 <div class="flex justify-center items-center gap-2">
                     <h3 class="bg-[#0ee87bf2] text-[10px] rounded-xl w-10 text-center text-white text-bold">+10%</h3>
@@ -265,7 +257,13 @@ if(isset($_POST["submit"])){
                     <h1 class="text-balck text-lg font-medium">Totale Likes</h1>
                 </div>      
 
-                <h1 class="text-balck font-bold text-4xl" id="moyenneScore">0</h1>
+                <h1 class="text-balck font-bold text-4xl">
+                <?php
+                    $totalLikes = mysqli_query($connexion , "SELECT likes as totaleLikes FROM article WHERE id_auteur = $id");
+                    $res = mysqli_fetch_assoc($totalLikes);
+                    echo $res["totaleLikes"];
+                  ?>
+                </h1>
 
                 <div class="flex justify-center items-center gap-2">
                     <h3 class="bg-[#0ee87bf2] text-[10px] rounded-xl w-10 text-center text-white text-bold">+33%</h3>
@@ -273,98 +271,16 @@ if(isset($_POST["submit"])){
                 </div>
             </div>
         
-
-            
             
           </div>
           
-          <div class="flex justify-between py-10 px-1">
-
-
-            <h1 class="text-white text-3xl font-bold">All Participation</h1>
-
-            <div class="flex gap-4"> 
- 
-              <div class="relative font-[sans-serif] w-max">
-                <button type="button" id="dropdownToggle"
-                  class="px-5 py-2.5 rounded text-white text-sm font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">
-                  Filter By Niveaux
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-white inline ml-3" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-                      clip-rule="evenodd" data-original="#000000" />
-                  </svg>
-                </button>
-          
-                <ul id="dropdownMenu" class='absolute hidden shadow-lg bg-white py-2 z-[1000] min-w-full w-max rounded max-h-96 overflow-auto'>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-black text-sm cursor-pointer'>Facile</li>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-black text-sm cursor-pointer'>Moyenne</li>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-black text-sm cursor-pointer'>Difficile</li>
-                </ul>
-              </div>
-
-              
-              <div class="relative font-[sans-serif] w-max">
-                <button type="button" id="dropdownToggle"
-                  class="px-5 py-2.5 rounded text-white text-sm font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">
-                  Filter User
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-white inline ml-3" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-                      clip-rule="evenodd" data-original="#000000" />
-                  </svg>
-                </button>
-          
-                <ul id="dropdownMenu" class='absolute hidden shadow-lg bg-white py-2 z-[1000] min-w-full w-max rounded max-h-96 overflow-auto'>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-white text-sm cursor-pointer'>Facile</li>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-white text-sm cursor-pointer'>Moyenne</li>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-white text-sm cursor-pointer'>Difficile</li>
-                </ul>
-              </div>
-  
-            </div>
-           
-
-          </div>
-
-          <div class="overflow-x-auto font-[sans-serif]">
-            <table class="min-w-full bg-[#0f154f]">
-              <thead class="whitespace-nowrap bg-[#05071b] rounded ">
-                <tr>
-                  <th class="p-4 text-left text-sm font-semibold text-white ">
-                    Username
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Quiz Name
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Correct
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Incorrect
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Score
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Modifie
-                  </th>
-                </tr>
-              </thead>
       
-              <tbody class="whitespace-nowrap divide-y divide-gray-700" id="userTable">
-
-
-              </tbody>
-            </table>
-    
-          </div>
 
       </div>
 
       <!--------------------------------------------- Articles ------------------------------------------------------->
 
-      <div class="artcile">
+      <div class="artcile hidden">
 
         <div class="w-full flex justify-between px-2">
           
@@ -381,7 +297,7 @@ if(isset($_POST["submit"])){
              <div class="relative font-[sans-serif] w-max">
                 <button type="button" id="dropdownToggle"
                   class="px-5 py-2.5 rounded text-white text-sm font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">
-                  Filter Score
+                  Filter by Title
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-white inline ml-3" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
                       d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
@@ -398,7 +314,7 @@ if(isset($_POST["submit"])){
              <div class="relative font-[sans-serif] w-max">
                 <button type="button" id="dropdownToggle"
                   class="px-5 py-2.5 rounded text-white text-sm font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">
-                  Filter Quiz
+                  Filter by Date
                   <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-white inline ml-3" viewBox="0 0 24 24">
                     <path fill-rule="evenodd"
                       d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
@@ -526,199 +442,7 @@ if(isset($_POST["submit"])){
 
       <!--------------------------------------------- Questions ------------------------------------------------------->
 
-      <div class="comments hidden">
-        
-        <div class="w-full flex justify-between px-2">
-          
-          <h1 class="text-white text-4xl font-extrabold">Questions</h1>
-
-        </div>
-        
-          <div class="flex justify-between py-10 px-1">
-
-            <h1 class="text-white text-3xl font-bold">All Questions</h1>
-
-            <div class="flex gap-4"> 
-   
-             <div class="relative font-[sans-serif] w-max">
-                <button type="button" id="dropdownToggle"
-                  class="px-5 py-2.5 rounded text-white text-sm font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">
-                  Filter Score
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-white inline ml-3" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-                      clip-rule="evenodd" data-original="#000000" />
-                  </svg>
-                </button>
-          
-                <ul id="dropdownMenu" class='absolute hidden shadow-lg bg-white py-2 z-[1000] min-w-full w-max rounded max-h-96 overflow-auto'>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-white text-sm cursor-pointer'>Facile</li>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-white text-sm cursor-pointer'>Moyenne</li>
-                  <li class='py-2.5 px-5 hover:bg-blue-50 text-white text-sm cursor-pointer'>Difficile</li>
-                </ul>
-              </div>
-             <div class="relative font-[sans-serif] w-max">
-                <button type="button" id="dropdownToggle"
-                  class="px-5 py-2.5 rounded text-white text-sm font-semibold border-none outline-none bg-blue-600 hover:bg-blue-700 active:bg-blue-600">
-                  Filter Quiz
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-white inline ml-3" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                      d="M11.99997 18.1669a2.38 2.38 0 0 1-1.68266-.69733l-9.52-9.52a2.38 2.38 0 1 1 3.36532-3.36532l7.83734 7.83734 7.83734-7.83734a2.38 2.38 0 1 1 3.36532 3.36532l-9.52 9.52a2.38 2.38 0 0 1-1.68266.69734z"
-                      clip-rule="evenodd" data-original="#000000" />
-                  </svg>
-                </button>
-          
-              </div>
-
-              <div class="font-[sans-serif] w-max">
-                <button type="button" id="questionBtn"
-                  class="flex justify-center items-center gap-2 px-5 py-2.5 rounded text-white text-sm font-medium border-none outline-none bg-green-600 hover:bg-green-700 active:bg-green-600">
-                  <span>Ajouter Questions</span>  
-                  <i class="fa fa-plus" style="font-size:16px"></i>
-                </button>
-              </div>
-  
-            </div>
-
-            <!-- Modal Ajouter Quizze -->
-
-            <div id="ajoutModalQuestion"
-            class="fixed inset-0 p-4 hidden flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
-            <div class="w-full max-w-lg bg-white shadow-lg rounded-lg p-8 relative">
-                <div class="flex items-center">
-                    <h3 class="text-blue-600 text-3xl font-bold flex-1 text-center w-full">Ajouter Question</h3>
-
-                    <div id="close2"> 
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 ml-2 cursor-pointer shrink-0 fill-gray-400 hover:fill-red-500"
-                      viewBox="0 0 320.591 320.591">
-                      <path
-                          d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z"
-                          data-original="#000000"></path>
-                      <path
-                          d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"
-                          data-original="#000000"></path>
-                      </svg>
-                    </div>
-                    
-                </div>
-
-                <form class="space-y-4 mt-8">
-
-                  <div>
-                    <labe class="text-gray-800 text-sm mb-2 block">Type</labe>
-                    <div class="select">
-                      <select class="selectOp" id="selectOptions">
-                        <option value="qcm">Qcm</option>
-                        <option value="boolean">True/False</option>
-                        <option value="text">Text</option>
-                      </select>
-                    </div>
-
-                  </div>
-
-
-                    <div>
-                      <labe class="text-gray-800 text-sm mb-2 block">Question</labe>
-                      <input type="text" placeholder="Saise le niveux"
-                          class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" id="Ques" />
-                    </div>
-
-
-                    <div id="optionQuestionSection">
-                        <labe class="text-gray-800 text-sm mb-2 block">Options</labe>
-                        <textarea placeholder='Option separer par "," ...'
-                            class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" id="optionQuestion" rows="3"></textarea>
-                    </div>
-
-
-                    <div>
-                      <labe class="text-gray-800 text-sm mb-2 block">La Bonne Reponse</labe>
-                      <div class="select select1" id="bonneReponse">
-                        <select class="selectOp" id="correctAnswerQuestion">
-                          
-                        </select>
-                      </div>
-
-                      <div class="select1" id="textSection">
-
-                      </div>
-  
-                    </div>
-
-                    <div>
-                        <labe class="text-gray-800 text-sm mb-2 block">Explication</labe>
-                        <input type="text" placeholder="Explication..."
-                            class="px-4 py-3 bg-gray-100 w-full text-gray-800 text-sm border-none focus:outline-blue-600 focus:bg-transparent rounded-lg" id="explicationQuestion" />
-                    </div>
-
-                    <div>
-
-                      <labe class="text-gray-800 text-sm mb-2 block">Quizze</labe>
-                      <div class="select">
-                        <select class="selectOp" id="quizzesOptions">
-                          
-
-                        </select>
-                      </div>
-
-                    </div>
-
-
-                    
-                    <div class="flex justify-end gap-4 !mt-8">
-                        <button type="button" id="questionCancel"
-                            class="px-6 py-3 rounded-lg text-gray-800 text-sm border-none outline-none tracking-wide bg-gray-200 hover:bg-gray-300">Cancel</button>
-                        <button type="button" id="ajoutQuestionBtn"
-                            class="px-6 py-3 rounded-lg text-white text-sm border-none outline-none tracking-wide bg-blue-600 hover:bg-blue-700">Ajouter</button>
-                    </div>
-
-
-                </form>
-            </div>
-        </div>
-
-            <!-- Fin Ajout Quiz -->
-           
-
-          </div>
-
-          <!-- Tablaux de quiz -->
-          <cdiv class="overflow-x-auto font-[sans-serif]">
-            <table class="min-w-full bg-[#0f154f]">
-              <thead class="whitespace-wrap bg-[#05071b] rounded">
-                <tr>
-                  <th class="p-4 text-left text-sm font-semibold text-white ">
-                    Titre
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white ">
-                    Type
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Question
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Options
-                  </th>
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    La bonne reponse
-                  </th>
-          
-                  <th class="p-4 text-left text-sm font-semibold text-white">
-                    Action
-                  </th>
-                </tr>
-              </thead>
-      
-              <tbody class="whitespace-wrap divide-y divide-gray-700" id="questiontable">
-           
-          
-                
-
-              </tbody>
-            </table>
-    
-          </div>
-      </div>
+     
 
 
     </section>
