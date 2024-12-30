@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/68eaff2e-4ab0-4a80-abe4-f60e8fff3b0f/project/fce72fb7-ecfd-4ce2-a0d8-1d23399a3358.svg)](https://wakatime.com/badge/user/68eaff2e-4ab0-4a80-abe4-f60e8fff3b0f/project/fce72fb7-ecfd-4ce2-a0d8-1d23399a3358)
+
 # 📝 BlogPress  
 **BlogPress** est une plateforme de blog moderne avec des fonctionnalités d'analyse intégrées. Développée en **PHP** et **MySQL**, cette application vous permet de créer, gérer et analyser des articles tout en offrant une expérience utilisateur intuitive.  
 
